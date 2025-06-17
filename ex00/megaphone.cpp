@@ -6,13 +6,23 @@
 /*   By: aobshatk <aobshatk@mail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/17 11:28:15 by aobshatk          #+#    #+#             */
-/*   Updated: 2025/06/17 14:25:48 by aobshatk         ###   ########.fr       */
+/*   Updated: 2025/06/17 17:41:03 by aobshatk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cctype>
 #include <iostream>
 #include <string>
+
+int	only_spaces(std::string &text)
+{
+	for (size_t i = 0; i < text.size(); i++)
+	{
+		if (text[i] != ' ')
+			return (0);
+	}
+	return (1);
+}
 
 void	upper_text(std::string &text)
 {
@@ -34,15 +44,15 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	text = argv[1];
-	if (text.empty() && argc == 2)
-	{
-		loud_noise();
-		return (0);
-	}
 	for (int i = 2; i < argc; i++)
 	{
 		text += ' ';
 		text += argv[i];
+	}
+	if (text.empty() || only_spaces(text))
+	{
+		loud_noise();
+		return (0);
 	}
 	upper_text(text);
 	std::cout << text << std::endl;
