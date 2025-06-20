@@ -46,6 +46,7 @@
 		"memory_resource": "cpp",
 		"numeric": "cpp",
 		"random": "cpp",
-		"cinttypes": "cpp"
+		"cinttypes": "cpp",
+		"ctime": "cpp"
 	}
 }
